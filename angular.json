@@ -24,9 +24,39 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/bootstrap.min.css",
+
+              "src/assets/css/flexslider.css",
+              "src/assets/css/image-light-box.css",
+
+              "src/assets/css/magnific-popup.css",
+              "src/assets/css/font-awesome.min.css",
+
+              "src/assets/css/normalize.css",
+              "src/assets/css/skin-lblue.css",
+              "src/assets/css/ecommerce.css",
+              "src/assets/css/owl.carousel.css",
+              "src/assets/css/main.css",
+              "src/assets/css/responsive.css",
+              "src/assets/css/revolutionslider_settings.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/vendor/modernizr-2.6.2.min.js",
+              "src/assets/js/vendor/jquery-1.10.2.min.js",
+              "src/assets/js/bootstrap.min.js",
+
+              "src/assets/js/jquery.scrollUp.js",
+              "src/assets/js/menu.js",
+              "src/assets/js/swiper/idangerous.swiper.min.js",
+              "src/assets/js/swiper/swiper.custom.js",
+              "src/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/js/jquery.countdown.min.js",
+              "src/assets/rs-plugin/js/jquery.themepunch.plugins.min.js",
+              "src/assets/rs-plugin/js/jquery.themepunch.revolution.min.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/main.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -119,6 +149,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-shop-flower"
+    }
+  },
+  "defaultProject": "angular-shop-flower",
+  "cli": {
+    "analytics": "c99340fc-1c97-4ee7-a421-cabfbe79a27b"
+  }
 }
