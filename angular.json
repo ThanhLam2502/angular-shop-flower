@@ -38,6 +38,7 @@
               "src/assets/css/ecommerce.css",
               "src/assets/css/owl.carousel.css",
               "src/assets/css/main.css",
+              "src/assets/css/setting.css",
               "src/assets/css/responsive.css",
               "src/assets/css/revolutionslider_settings.css"
             ],
@@ -52,6 +53,9 @@
               "src/assets/js/swiper/swiper.custom.js",
               "src/assets/js/jquery.magnific-popup.min.js",
               "src/assets/js/jquery.countdown.min.js",
+
+              "src/assets/js/image-lightbox/imagelightbox.js",
+
               "src/assets/rs-plugin/js/jquery.themepunch.plugins.min.js",
               "src/assets/rs-plugin/js/jquery.themepunch.revolution.min.js",
               "src/assets/js/owl.carousel.min.js",
