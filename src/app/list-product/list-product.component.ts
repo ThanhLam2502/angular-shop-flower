@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Flower } from '../Flower';
+import { Flower } from '../domain/Flower';
 import { FlowerService } from '../flower.service';
 
 @Component({

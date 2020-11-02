@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Cart } from '../Cart';
-import { CartService } from '../cart.service';
+import { Cart } from '../domain/Cart';
+import { FlowerService } from '../flower.service';
 
 
 @Component({
@@ -12,13 +12,17 @@ export class ShoppingCartComponent implements OnInit {
   carts: Cart[];
 
   constructor(
-    private cartService: CartService,
+    private flowerService: FlowerService,
   ) { }
 
   ngOnInit(): void {
-    // this.getCarts();
+    this.getCarts();
   }
+
   getCarts(): void {
-    this.cartService.getCarts();
+    // this.flowerService.getCarts().subscribe((item) => {
+    //   this.carts = item
+    // });
+    this.flowerService.getCarts().subscribe(item => this.carts = item);
   }
 }

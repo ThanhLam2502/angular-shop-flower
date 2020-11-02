@@ -2,7 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Flower } from './Flower';
+import { Cart } from './domain/Cart';
+import { Flower } from './domain/Flower';
 import { MessageService } from './message.service';
 
 @Injectable({
@@ -10,6 +11,8 @@ import { MessageService } from './message.service';
 })
 export class FlowerService {
   private flowersUrl = 'api/flowers';  // URL to web api
+  // private cartUrl = 'api/carts';  // URL to web api
+  carts: Cart[] = [];
 
   constructor(
     private http: HttpClient,
@@ -17,27 +20,39 @@ export class FlowerService {
   ) { }
 
   private log(message: string) {
-    this.messageService.add(`HeroService: ${message}`);
+    this.messageService.add(`Service: ${message}`);
   }
 
-  /** GET heroes from the server */
+  /** GET flowers from the server */
   getFlowers(): Observable<Flower[]> {
     return this.http.get<Flower[]>(this.flowersUrl)
-      .pipe(
-        tap(_ => this.log('fetched flowers')),
-        catchError(this.handleError<Flower[]>('getFlowers', []))
-      );
   }
 
-  /** GET hero by id. Will 404 if id not found */
+  /** GET flower by id. Will 404 if id not found */
   getFlower(id: number): Observable<Flower> {
     const url = `${this.flowersUrl}/${id}`;
-    return this.http.get<Flower>(url).pipe(
-      tap(_ => this.log(`fetched flower id=${id}`)),
-      catchError(this.handleError<Flower>(`getHero id=${id}`))
-    );
+    return this.http.get<Flower>(url);
   }
 
+  addCart(cart: Cart): void {
+    // return this.http.post<Cart>(this.cartUrl, cart, this.httpOptions);
+    let itemInCarts = this.carts.find(_ => _.flowerID === cart.flowerID)
+    if(itemInCarts)
+      itemInCarts.quatity += cart.quatity;
+    else
+      this.carts.push(cart);
+  }
+
+
+  getCarts(): Observable<Cart[]> {
+    // return this.http.get<Cart[]>(this.cartUrl);
+    console.log(this.carts);
+    return of(this.carts);
+  }
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
   /**
  * Handle Http operation that failed.
  * Let the app continue.

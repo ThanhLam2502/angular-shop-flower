@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Cart } from '../domain/Cart';
+import { FlowerService } from '../flower.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  carts: Cart[];
 
-  constructor() { }
+  constructor(
+    private flowerService: FlowerService,
+  ) { }
 
   ngOnInit(): void {
+    this.getCarts();
   }
-
+  getCarts(): void {
+    this.flowerService.getCarts().subscribe(item => this.carts = item);
+  }
 }

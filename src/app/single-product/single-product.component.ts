@@ -1,8 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CartService } from '../cart.service';
-import { Flower } from '../Flower';
+import { isTemplateExpression } from 'typescript';
+import { Cart } from '../domain/Cart';
+import { Flower } from '../domain/Flower';
 import { FlowerService } from '../flower.service';
 
 @Component({
@@ -12,11 +13,11 @@ import { FlowerService } from '../flower.service';
 })
 export class SingleProductComponent implements OnInit {
   flower: Flower;
+  carts: Cart[];
 
   constructor(
     private route: ActivatedRoute,
     private flowerService: FlowerService,
-    private cartService: CartService,
     private location: Location,
   ) { }
 
@@ -29,10 +30,14 @@ export class SingleProductComponent implements OnInit {
     this.flowerService.getFlower(id)
       .subscribe(item => this.flower = item);
   }
-  onSubmit(form) {
-    this.flowerService.getFlower(form.value.id)
-      .subscribe(item => this.flower = item);
-    this.cartService.addCart(this.flower);
-  }
+  onSubmit(values): void {
+    let subTotal = values.price * values.quantity;
+    let cart: Cart = { userID: values.userID, flowerID: values.productID, name: values.name, img: values.img, price: values.price, quatity: values.quantity, subTotal: subTotal };
 
+    this.flowerService.addCart(cart);
+    this.goBack();
+  }
+  goBack(): void {
+    this.location.back();
+  }
 }

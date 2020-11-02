@@ -1,175 +1,168 @@
 <!-- start main content -->
 <main class="main-container">
-<section class="product_content_area pt-40">
-	<!-- start of page content -->
+  <section class="product_content_area pt-40">
+    <!-- start of page content -->
+    <div class="lookcare-product-single container">
+      <div class="row">
+        <div class="main col-xs-12" role="main">
+          <div class=" product">
 
-	<div class="lookcare-product-single container">
-
-		<div class="row">
-
-			<div class="main col-xs-12" role="main">
-
-				<div class=" product">
-
-					<div class="row">
-
-						<div class="col-md-5 col-sm-6 summary-before ">
-
-							<div class="product-slider product-shop">
-								<span class="onsale">Sale!</span>
-								<ul class="slides">
-									<li data-thumb="img/temp-images/hoodie_7_front-140x140.jpg">
-										<a href="img/temp-images/hoodie_7_front.jpg" data-imagelightbox="gallery" class="hoodie_7_front">
-											<img src="assets/img/temp-images/hoodie_7_front-470x470.jpg" class="attachment-shop_single" alt="image" style="width: 100%;
+            <div *ngIf="flower">
+              <div class="row">
+                <div class="col-md-5 col-sm-6 summary-before ">
+                  <div class="product-slider product-shop">
+                    <!-- <span class="onsale">Sale!</span> -->
+                    <ul class="slides">
+                      <li data-thumb="assets/img/temp-images/hoodie_7_front-140x140.jpg">
+                        <a href="assets/img/temp-images/hoodie_7_front.jpg" data-imagelightbox="gallery"
+                          class="hoodie_7_front">
+                          <img src={{flower.img}} class="attachment-shop_single" alt="image" style="width: 100%;
                       height: auto;">
-										</a>
-									</li>
-								</ul>
-							</div>
-						</div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="col-md-7 col-sm-6 product-review entry-summary">
 
-						<div class="col-sm-6 col-md-7 product-review entry-summary">
+                  <h1 class="product_title">{{ flower.name }}</h1>
+                  <div>
+                    <p class="price">
+                      <ins><span class="amount">${{ flower.price }}</span></ins></p>
+                  </div>
 
-							<h1 class="product_title">Belted Eyelet Lace Fit</h1>
-							<div>
-								<p class="price">
-									<ins><span class="amount">$30.00</span></ins></p>
-							</div>
+                  <p>{{ flower.description }}</p>
 
-							<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                  <form #formCart="ngForm" (ngSubmit)="onSubmit(formCart.value)" method="post"
+                    class="variations_form cart">
+                    <div class="quantity">
+                      <input type="hidden" name="userID" ngModel="1">
+                      <input type="hidden" name="productID" ngModel="{{flower.id}}">
+                      <input type="hidden" name="name" ngModel="{{flower.name}}">
+                      <input type="hidden" name="img" ngModel="{{flower.img}}">
+                      <input type="hidden" name="price" ngModel="{{flower.price}}">
+                      <input type="number" name="quantity" [ngModel]='1' title="Qty" class="input-text qty text">
+                    </div>
+                    <button type="submit" class="cart-button">Add to cart</button>
 
+                  </form>
 
-							<form class="variations_form cart" method="post">
-								<div class="quantity">
-									<input type="number" step="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" min="1">
-								</div>
+                  <div class="product_meta">
+                    <span class="sku_wrapper">SKU: <span class="sku">N/A</span>.</span>
+                    <span class="posted_in">Categories:
+                      <!-- <a href="#" rel="tag">Clothing</a>, <a
+                        href="#">Hoodies</a> -->
+                      .
+                    </span>
+                  </div>
+                  <div class="share-social-icons">
+                    <a href="#" target="_blank" title="Share on Facebook">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="#" target="_blank" title="Share on Twitter">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#" target="_blank" title="Pin on Pinterest">
+                      <i class="fa fa-pinterest"></i>
+                    </a>
+                    <a href="#" target="_blank" title="Share on Google+">
+                      <i class="fa fa-google-plus"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- .summary -->
+            </div>
 
-								<button type="submit" class="cart-button">Add to cart</button>
+            <div class="wrapper-description">
 
-							</form>
+              <ul class="tabs-nav clearfix">
+                <li class="active">Description</li>
+                <li>Review (3)</li>
+              </ul>
+              <div class="tabs-container product-comments">
 
-							<div class="product_meta">
+                <div class="tab-content">
+                  <section class="related-products">
 
+                    <h2>Product Description</h2>
 
+                    <p>
+                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                      Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
+                      amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                    </p>
+                  </section>
+                </div>
+              </div>
+            </div>
 
-								<span class="sku_wrapper">SKU: <span class="sku">N/A</span>.</span>
+          </div>
+          <!-- #product-293 -->
 
+        </div>
+        <!-- end of main -->
 
-								<span class="posted_in">Categories: <a href="#" rel="tag">Clothing</a>, <a href="#">Hoodies</a>.</span>
+      </div>
+      <!-- end of .row -->
 
+    </div>
 
-							</div>
+    <!-- end of page content -->
+  </section>
 
-							<div class="share-social-icons">
-
-								<a href="#" target="_blank" title="Share on Facebook">
-									<i class="fa fa-facebook"></i>
-								</a>
-								<a href="#" target="_blank" title="Share on Twitter">
-									<i class="fa fa-twitter"></i>
-								</a>
-								<a href="#" target="_blank" title="Pin on Pinterest">
-									<i class="fa fa-pinterest"></i>
-								</a>
-								<a href="#" target="_blank" title="Share on Google+">
-									<i class="fa fa-google-plus"></i>
-								</a>
-							</div>
-
-						</div>
-						<!-- .summary -->
-
-					</div>
-
-					<div class="wrapper-description">
-
-						<ul class="tabs-nav clearfix">
-							<li class="active">Description</li>
-							<li>Review (3)</li>
-						</ul>
-						<div class="tabs-container product-comments">
-
-							<div class="tab-content">
-								<section class="related-products">
-
-									<h2>Product Description</h2>
-
-									<p>
-										Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
-									</p>
-								</section>
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<!-- #product-293 -->
-
-			</div>
-			<!-- end of main -->
-
-		</div>
-		<!-- end of .row -->
-
-	</div>
-
-	<!-- end of page content -->
-</section>
-
-<!-- service area -->
-	<section class="block gray no-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="content-box no-margin go-simple">
-						<div class="mini-service-sec">
-							<div class="row">
-								<div class="col-md-3">
-									<div class="mini-service">
-										<i  class="fa fa-paper-plane"></i>
-										<div class="mini-service-info">
-											<h3>Worldwide Delivery</h3>
-											<p>unc tincidunt, on cursusau gmetus, lorem Hore</p>
-										</div>
-									</div><!-- Mini Service -->
-								</div>
-								<div class="col-md-3">
-									<div class="mini-service">
-										<i  class="fa  fa-newspaper-o"></i>
-										<div class="mini-service-info">
-											<h3>Worldwide Delivery</h3>
-											<p>unc tincidunt, on cursusa ugmetus, lorem Hore</p>
-										</div>
-									</div><!-- Mini Service -->
-								</div>
-								<div class="col-md-3">
-									<div class="mini-service">
-										<i  class="fa fa-medkit"></i>
-										<div class="mini-service-info">
-											<h3>Friendly Stuff</h3>
-											<p>unc tincidunt, on cursusau gmetus, lorem Hore</p>
-										</div>
-									</div><!-- Mini Service -->
-								</div>
-								<div class="col-md-3">
-									<div class="mini-service">
-										<i  class="fa  fa-newspaper-o"></i>
-										<div class="mini-service-info">
-											<h3>24/h Support</h3>
-											<p>unc tincidunt, on cursusa ugmetus, lorem Hore</p>
-										</div>
-									</div><!-- Mini Service -->
-								</div>
-							</div>
-						</div><!-- Mini Service Sec -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<div class="clearfix"></div>
-<!-- end service area -->
+  <!-- service area -->
+  <section class="block gray no-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="content-box no-margin go-simple">
+            <div class="mini-service-sec">
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="mini-service">
+                    <i class="fa fa-paper-plane"></i>
+                    <div class="mini-service-info">
+                      <h3>Worldwide Delivery</h3>
+                      <p>unc tincidunt, on cursusau gmetus, lorem Hore</p>
+                    </div>
+                  </div><!-- Mini Service -->
+                </div>
+                <div class="col-md-3">
+                  <div class="mini-service">
+                    <i class="fa  fa-newspaper-o"></i>
+                    <div class="mini-service-info">
+                      <h3>Worldwide Delivery</h3>
+                      <p>unc tincidunt, on cursusa ugmetus, lorem Hore</p>
+                    </div>
+                  </div><!-- Mini Service -->
+                </div>
+                <div class="col-md-3">
+                  <div class="mini-service">
+                    <i class="fa fa-medkit"></i>
+                    <div class="mini-service-info">
+                      <h3>Friendly Stuff</h3>
+                      <p>unc tincidunt, on cursusau gmetus, lorem Hore</p>
+                    </div>
+                  </div><!-- Mini Service -->
+                </div>
+                <div class="col-md-3">
+                  <div class="mini-service">
+                    <i class="fa  fa-newspaper-o"></i>
+                    <div class="mini-service-info">
+                      <h3>24/h Support</h3>
+                      <p>unc tincidunt, on cursusa ugmetus, lorem Hore</p>
+                    </div>
+                  </div><!-- Mini Service -->
+                </div>
+              </div>
+            </div><!-- Mini Service Sec -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="clearfix"></div>
+  <!-- end service area -->
 </main>
 <!-- end main content -->
-
-
